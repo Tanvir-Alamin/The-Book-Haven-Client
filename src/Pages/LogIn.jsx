@@ -1,17 +1,64 @@
-import Aos from "aos";
-import { Eye, EyeOff } from "lucide";
-import React, { useState } from "react";
-import { Link } from "react-router";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
+import { BsEyeFill } from "react-icons/bs";
+import { Eye, EyeOff } from "lucide-react";
 
 const LogIn = () => {
+  const navigate = useNavigate();
+  const { google, setUser, mailLogIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const [eye, setEye] = useState(false);
+  const submitGoogle = (e) => {
+    e.preventDefault();
+    google()
+      .then((result) => setUser(result.user), navigate("/home"))
+      .catch((error) => console.log(error.code));
+  };
+  const loginHandle = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (!email) {
+      setError("Email is required");
+      return;
+    }
 
+    if (!password) {
+      setError("Password is required");
+      return;
+    }
+    setError("");
+
+    mailLogIn(email, password)
+      .then((result) => {
+        e.target.reset();
+        setUser(result.user);
+        setSuccess(true);
+        navigate("/home");
+      })
+      .catch((error) => {
+        handleFirebaseError(error.code);
+      });
+    const handleFirebaseError = (code) => {
+      if (code === "auth/invalid-credential") {
+        setError("Invalid email or password");
+      } else if (code === "auth/invalid-email") {
+        setError("Please enter a valid email");
+      } else if (code === "auth/user-disabled") {
+        setError("This account has been disabled");
+      } else {
+        setError("Login failed. Please try again");
+      }
+    };
+  };
   return (
     <div>
       <div>
         <div className="flex items-center  justify-center">
           <div className=" bg-[#FFE4EF] flex justify-between  my-25 shadow-2xl rounded-2xl ">
-            <form onSubmit={"loginHandle"} className="">
+            <form onSubmit={loginHandle} className="">
               <fieldset className="fieldset  border-none rounded-box mt-5 w-xs mx-15 border p-4">
                 <div className="text-3xl text-center text-green-950 font-sans font-semibold">
                   Sing in to discover the Haven
@@ -43,19 +90,18 @@ const LogIn = () => {
                       setEye(!eye);
                     }}
                   >
-                    {" "}
-                    {/* {!eye ? <EyeOff /> : <Eye />} */}
+                    {!eye ? <EyeOff /> : <Eye />}
                   </p>
                 </div>
                 <Link className="text-xs mt-1 underline text-blue-900">
                   Forgot your password?
                 </Link>
-                {/* {error ? <p className="text-red-500 text-sm">{error}</p> : ""}
+                {error ? <p className="text-red-500 text-sm">{error}</p> : ""}
                 {success ? (
                   <p className="text-blue-600 text-sm">Login successful ✓</p>
                 ) : (
                   ""
-                )} */}
+                )}
 
                 <button className="btn bg-pink-800 text-white font-bold mt-4">
                   Login
@@ -66,10 +112,7 @@ const LogIn = () => {
                 <div className="mx-3">Or continue with</div>
                 <div>────────</div>
               </div>
-              <div
-                onClick={"submitGoogle"}
-                className="flex my-5 justify-center"
-              >
+              <div onClick={submitGoogle} className="flex my-5 justify-center">
                 {" "}
                 <button className="btn bg-white w-71 text-black border-[#e5e5e5]">
                   <svg
@@ -104,14 +147,14 @@ const LogIn = () => {
               </div>
               <div className="flex my-5 justify-center">
                 Don't have an account?{" "}
-                <Link to="/signup" className="ml-1 text-blue-700 underline">
+                <Link to="/register" className="ml-1 text-blue-700 underline">
                   {" "}
                   Sign up here
                 </Link>
               </div>
             </form>
             <img
-              className="md:w-100 hidden md:block rounded-r-2xl h-full"
+              className="md:w-100 hidden md:block rounded-4xl shadow-black shadow-2xl rounded-r-2xl h-full"
               src={"/src/assets/logInImage.jpg"}
               alt=""
             />

@@ -6,6 +6,7 @@ import AllBooks from "../Pages/AllBooks.jsx";
 import AddBook from "../Pages/AddBook.jsx";
 import MyBooks from "../Pages/MyBooks.jsx";
 import LogIn from "../Pages/LogIn.jsx";
+import Register from "../Pages/Register.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         Component: LogIn,
+      },
+      {
+        path: "register",
+        Component: Register,
       },
     ],
   },
