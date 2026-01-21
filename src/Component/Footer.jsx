@@ -8,8 +8,8 @@ import { NavLink } from "react-router";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="footer flex justify-evenly items-center sm:footer-horizontal bg-neutral text-neutral-content p-10">
+    <div className="">
+      <footer className="footer bg-[#95a5a6] flex justify-evenly items-center sm:footer-horizontal font-bold text-dark-content p-10">
         <aside>
           <img className="w-15 rounded-2xl" src="/src/assets/logo.png" alt="" />
           <p>
@@ -33,42 +33,55 @@ const Footer = () => {
           </div>
         </nav>
         <nav>
-          <div className="grid grid-flow-col gap-4">
-            <div className="flex font-bold flex-col gap-.5 ">
-              <NavLink
-                className="flex btn btn-ghost  hover:btn-success gap-1 items-center"
-                to=""
-              >
-                {" "}
-                <IoHomeOutline />
-                Home
-              </NavLink>
-              <NavLink
-                className="flex btn btn-ghost  hover:btn-success gap-1 items-center"
-                to=""
-              >
-                <SiWikibooks />
-                All Books
-              </NavLink>
-              <NavLink
-                className="flex btn btn-ghost  hover:btn-success gap-1 items-center"
-                to=""
-              >
-                <AiOutlinePlusCircle />
-                Add Book
-              </NavLink>
-              <NavLink
-                className="flex btn btn-ghost  hover:btn-success gap-1 items-center"
-                to=""
-              >
-                <FaRegUser />
-                My Books
-              </NavLink>
-            </div>
+          <div className="flex font-bold flex-col gap-2">
+            <NavLink
+              className={({ isActive }) =>
+                `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+                  isActive ? "bg-emerald-600" : ""
+                }`
+              }
+              to="/home"
+            >
+              <IoHomeOutline />
+              Home
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+                  isActive ? "bg-emerald-600" : ""
+                }`
+              }
+              to="/all-books"
+            >
+              <SiWikibooks />
+              All Books
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+                  isActive ? "bg-emerald-600" : ""
+                }`
+              }
+              to="/add-book"
+            >
+              <AiOutlinePlusCircle />
+              Add Book
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+                  isActive ? "bg-emerald-600" : ""
+                }`
+              }
+              to="/my-books"
+            >
+              <FaRegUser />
+              My Books
+            </NavLink>
           </div>
         </nav>
       </footer>
-      <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+      <footer className="footer sm:footer-horizontal footer-center bg-[#bdc3c7] text-base-content p-4">
         <aside>
           <p>
             Copyright © {new Date().getFullYear()} - All right reserved by The

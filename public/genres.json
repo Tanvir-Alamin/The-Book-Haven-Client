@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "genre": "Fantasy",
+    "emoji": "🧙‍♂️",
+    "description": "Magical worlds, mythical creatures, and epic adventures."
+  },
+  {
+    "id": 2,
+    "genre": "Mystery",
+    "emoji": "🕵️‍♀️",
+    "description": "Twists, secrets, and thrilling investigations."
+  },
+  {
+    "id": 3,
+    "genre": "Science Fiction",
+    "emoji": "🚀",
+    "description": "Futuristic technology, space exploration, and innovation."
+  },
+  {
+    "id": 4,
+    "genre": "Romance",
+    "emoji": "❤️",
+    "description": "Love stories filled with emotion and connection."
+  },
+  {
+    "id": 5,
+    "genre": "Non-Fiction",
+    "emoji": "📘",
+    "description": "Real stories, knowledge, and life-changing ideas."
+  },
+  {
+    "id": 6,
+    "genre": "Horror",
+    "emoji": "👻",
+    "description": "Dark tales that thrill, scare, and excite."
+  }
+]

@@ -10,30 +10,45 @@ const Navbar = () => {
   const link = (
     <div className="flex md:flex-row  font-bold flex-col gap-2 md:gap-7">
       <NavLink
-        className="flex btn btn-ghost  hover:btn-success gap-1 items-center"
-        to=""
+        className={({ isActive }) =>
+          `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+            isActive ? "bg-emerald-600" : ""
+          }`
+        }
+        to="/home"
       >
-        {" "}
         <IoHomeOutline />
         Home
       </NavLink>
       <NavLink
-        className="flex btn btn-ghost  hover:btn-success gap-1 items-center"
-        to=""
+        className={({ isActive }) =>
+          `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+            isActive ? "bg-emerald-600" : ""
+          }`
+        }
+        to="/all-books"
       >
         <SiWikibooks />
         All Books
       </NavLink>
       <NavLink
-        className="flex btn btn-ghost  hover:btn-success gap-1 items-center"
-        to=""
+        className={({ isActive }) =>
+          `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+            isActive ? "bg-emerald-600" : ""
+          }`
+        }
+        to="/add-book"
       >
         <AiOutlinePlusCircle />
         Add Book
       </NavLink>
       <NavLink
-        className="flex btn btn-ghost  hover:btn-success gap-1 items-center"
-        to=""
+        className={({ isActive }) =>
+          `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+            isActive ? "bg-emerald-600" : ""
+          }`
+        }
+        to="/my-books"
       >
         <FaRegUser />
         My Books
@@ -42,7 +57,7 @@ const Navbar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-pink-50 shadow-sm">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,12 +84,12 @@ const Navbar = () => {
               {link}
             </ul>
           </div>
-          <Link className="btn py-6 btn-ghost text-xl">
+          <Link to="/home" className="btn py-6 btn-ghost text-xl">
             <img
               className="w-12 rounded-xl"
               src="/src/assets/logo.png"
               alt=""
-            />{" "}
+            />
             The Book Haven
           </Link>
         </div>
@@ -83,8 +98,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <NavLink
-            className="flex btn btn-ghost btn-outline hover:btn-success gap-1 items-center"
-            to=""
+            className={({ isActive }) =>
+              `flex btn btn-ghost btn-outline hover:btn-success gap-1 items-center ${
+                isActive ? "bg-emerald-600" : ""
+              }`
+            }
+            to="/login"
           >
             <IoLogInOutline />
             Login
