@@ -1,0 +1,151 @@
+[
+  {
+    "_id": "6973083959dab43f57dd5989",
+    "title": "Berserk",
+    "author": "Kentaro Miura",
+    "genre": "Dark Fantasy, Seinen",
+    "rating": 5,
+    "summary": "A brutal dark fantasy following Guts, a lone mercenary struggling against fate, demons, and inner darkness.",
+    "coverImage": "https://i.ibb.co.com/8gJfxygy/Berserk.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd598a",
+    "title": "Monster",
+    "author": "Naoki Urasawa",
+    "genre": "Psychological Thriller, Seinen",
+    "rating": 4.9,
+    "summary": "A surgeon’s life unravels after saving a child who grows into a terrifying criminal mastermind.",
+    "coverImage": "https://i.ibb.co.com/MkGjPPxn/Monster.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd598b",
+    "title": "Vinland Saga",
+    "author": "Makoto Yukimura",
+    "genre": "Historical, Seinen",
+    "rating": 4.9,
+    "summary": "A Viking epic about revenge, war, and the search for true peace beyond violence.",
+    "coverImage": "https://i.ibb.co.com/wFjWk82n/Vinland-Saga.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd598c",
+    "title": "Homunculus",
+    "author": "Hideo Yamamoto",
+    "genre": "Psychological, Horror",
+    "rating": 4.6,
+    "summary": "A disturbing exploration of identity and trauma through surreal psychological phenomena.",
+    "coverImage": "https://i.ibb.co.com/tPJj7tYv/Homunculus.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd598d",
+    "title": "Vagabond",
+    "author": "Takehiko Inoue",
+    "genre": "Historical, Philosophy",
+    "rating": 5,
+    "summary": "A philosophical journey following the life of legendary swordsman Miyamoto Musashi.",
+    "coverImage": "https://i.ibb.co.com/JW5FcbwG/Vagabond.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd598e",
+    "title": "Goodnight Punpun",
+    "author": "Inio Asano",
+    "genre": "Drama, Psychological",
+    "rating": 4.8,
+    "summary": "A deeply emotional coming-of-age story dealing with depression and existential despair.",
+    "coverImage": "https://i.ibb.co.com/mrDWjmrb/Goodnight-Punpun.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd598f",
+    "title": "20th Century Boys",
+    "author": "Naoki Urasawa",
+    "genre": "Mystery, Sci-Fi",
+    "rating": 4.8,
+    "summary": "Childhood friends uncover a global conspiracy rooted in forgotten memories.",
+    "coverImage": "https://i.ibb.co.com/TB5V2Psz/20th-Century-Boys.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd5990",
+    "title": "Parasyte in Love",
+    "author": "Sugaru Miaki",
+    "genre": "Romance, Psychological",
+    "rating": 4.5,
+    "summary": "A melancholic story about loneliness, obsession, and fragile human connections.",
+    "coverImage": "https://i.ibb.co.com/jvP9Ytgv/Parasyte-in-Love.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd5991",
+    "title": "Blame!",
+    "author": "Tsutomu Nihei",
+    "genre": "Cyberpunk, Sci-Fi",
+    "rating": 4.6,
+    "summary": "A silent journey through an endless megastructure ruled by machines.",
+    "coverImage": "https://i.ibb.co.com/rNcS2fv/Blame.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd5992",
+    "title": "Ergo Proxy",
+    "author": "Manglobe",
+    "genre": "Philosophical, Sci-Fi",
+    "rating": 4.4,
+    "summary": "A philosophical sci-fi story questioning identity and consciousness.",
+    "coverImage": "https://i.ibb.co.com/F13pZ0c/Ergo-Proxy.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd5993",
+    "title": "One Piece",
+    "author": "Eiichiro Oda",
+    "genre": "Adventure, Fantasy",
+    "rating": 5,
+    "summary": "A legendary pirate adventure following Luffy in search of the ultimate treasure.",
+    "coverImage": "https://i.ibb.co.com/dJPRTXcJ/One-Piece.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd5994",
+    "title": "Your Name",
+    "author": "Makoto Shinkai",
+    "genre": "Romance, Fantasy",
+    "rating": 4.7,
+    "summary": "A beautiful tale of love and destiny between two strangers connected beyond time.",
+    "coverImage": "https://i.ibb.co.com/gZwLz5SD/Your-Name.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd5995",
+    "title": "To Your Eternity",
+    "author": "Yoshitoki Oima",
+    "genre": "Drama, Fantasy",
+    "rating": 4.8,
+    "summary": "An immortal being learns what it means to be human through loss, love, and time.",
+    "coverImage": "https://i.ibb.co.com/0y8c2zwN/To-Your-Eternity.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd5996",
+    "title": "Grave of the Fireflies",
+    "author": "Akiyuki Nosaka",
+    "genre": "War, Drama",
+    "rating": 4.9,
+    "summary": "A heartbreaking story of two siblings struggling to survive during wartime Japan.",
+    "coverImage": "https://i.ibb.co.com/tP3FyyXq/Grave-of-the-Fireflies.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
+    "_id": "6973083959dab43f57dd5997",
+    "title": "Howl's Moving Castle",
+    "author": "Diana Wynne Jones",
+    "genre": "Fantasy, Romance",
+    "rating": 4.6,
+    "summary": "A magical fantasy about love, curses, and a wizard living inside a moving castle.",
+    "coverImage": "https://i.ibb.co.com/27dK2cWh/Howl-s-Moving-Castle.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  }]
