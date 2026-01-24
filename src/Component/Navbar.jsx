@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiBookAdd } from "react-icons/bi";
+import { CiLogout } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { IoHomeOutline, IoLogInOutline } from "react-icons/io5";
 import { SiBookmyshow, SiWikibooks } from "react-icons/si";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
+import Loader from "./Loader";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, loading, logOut } = useContext(AuthContext);
+
   const link = (
     <div className="flex md:flex-row  font-bold flex-col gap-2 md:gap-7">
       <NavLink
@@ -55,6 +61,19 @@ const Navbar = () => {
       </NavLink>
     </div>
   );
+  const handleLogOut = () => {
+    logOut()
+      .then((res) => {
+        (console.log(res),
+          Swal.fire({
+            title: `Added Successfully`,
+            text: `Book has been Added`,
+            icon: "success",
+          }));
+      })
+      .catch((error) => console.log(error.code));
+  };
+  if (loading) return <Loader></Loader>;
   return (
     <div className="">
       <div className="navbar bg-pink-50 shadow-sm">
@@ -97,17 +116,28 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{link}</ul>
         </div>
         <div className="navbar-end">
-          <NavLink
-            className={({ isActive }) =>
-              `flex btn btn-ghost btn-outline hover:btn-success gap-1 items-center ${
-                isActive ? "bg-emerald-600" : ""
-              }`
-            }
-            to="/login"
-          >
-            <IoLogInOutline />
-            Login
-          </NavLink>
+          <div className="dropdown">
+            <NavLink
+              className={({ isActive }) =>
+                `flex btn btn-ghost btn-outline hover:btn-success gap-1 items-center ${
+                  isActive ? "bg-emerald-600" : ""
+                }`
+              }
+              to="/login"
+            >
+              <IoLogInOutline />
+              Login
+            </NavLink>
+            <ul className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-2">
+              <li>{user?.email}</li>
+              <li>
+                <NavLink to="/profile/settings">Settings</NavLink>
+              </li>
+              <li>
+                <NavLink onClick={handleLogOut}>Logout</NavLink>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

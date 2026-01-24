@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router";
 
 const CardStyle = ({ book }) => {
+  console.log(book);
+
   return (
     <div className="my-10 flex justify-center">
       <div className="group relative flex flex-col">
@@ -27,7 +29,7 @@ const CardStyle = ({ book }) => {
         </div>
 
         <div className="mt-3 font-semibold text-center">
-          <div className="flex justify-between text-sm opacity-80">
+          <div className="flex w-60 justify-between text-sm opacity-80">
             <span>{book.genre}</span>
             <span className="shadow-pink-00 shadow-3xl">⭐ {book.rating}</span>
           </div>

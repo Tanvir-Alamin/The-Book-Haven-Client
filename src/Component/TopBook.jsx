@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CardStyle from "./CardStyle";
+import { AuthContext } from "../Context/AuthContext";
 
 const TopBook = () => {
+  const { setLoading } = useContext(AuthContext);
   const [book, setBook] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/all-books")
       .then((res) => res.json())
-      .then((data) => setBook(data));
+      .then((data) => {
+        (setBook(data), setLoading(false));
+      });
   }, []);
-  const top6 = book.sort((a, b) => b - a).slice(0, 6);
+  const top6 = book.sort((a, b) => b.rating - a.rating).slice(0, 6);
 
   return (
     <div className="bg-pink-50">

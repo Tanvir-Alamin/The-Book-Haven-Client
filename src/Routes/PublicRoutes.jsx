@@ -33,6 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-books",
+        loader: () => fetch("http://localhost:3000/all-books"),
         Component: MyBooks,
       },
       {

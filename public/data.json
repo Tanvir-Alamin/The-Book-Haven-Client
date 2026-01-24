@@ -140,6 +140,16 @@
     "userEmail": "tanviralamin221@gmail.com"
   },
   {
+    "_id": "6973083959dab43f57dd5996",
+    "title": "Grave of the Fireflies",
+    "author": "Akiyuki Nosaka",
+    "genre": "War, Drama",
+    "rating": 4.9,
+    "summary": "A heartbreaking story of two siblings struggling to survive during wartime Japan.",
+    "coverImage": "https://i.ibb.co.com/tP3FyyXq/Grave-of-the-Fireflies.jpg",
+    "userEmail": "tanviralamin221@gmail.com"
+  },
+  {
     "_id": "6973083959dab43f57dd5997",
     "title": "Howl's Moving Castle",
     "author": "Diana Wynne Jones",
