@@ -37,28 +37,34 @@ const Navbar = () => {
         <SiWikibooks />
         All Books
       </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          `flex btn btn-ghost hover:btn-success gap-1 items-center ${
-            isActive ? "bg-emerald-600" : ""
-          }`
-        }
-        to="/add-book"
-      >
-        <AiOutlinePlusCircle />
-        Add Book
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          `flex btn btn-ghost hover:btn-success gap-1 items-center ${
-            isActive ? "bg-emerald-600" : ""
-          }`
-        }
-        to="/my-books"
-      >
-        <FaRegUser />
-        My Books
-      </NavLink>
+      {user ? (
+        <div className="flex flex-col md:flex-row">
+          <NavLink
+            className={({ isActive }) =>
+              `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+                isActive ? "bg-emerald-600" : ""
+              }`
+            }
+            to="/add-book"
+          >
+            <AiOutlinePlusCircle />
+            Add Book
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+                isActive ? "bg-emerald-600" : ""
+              }`
+            }
+            to="/my-books"
+          >
+            <FaRegUser />
+            My Books
+          </NavLink>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
   const handleLogOut = () => {
@@ -66,8 +72,8 @@ const Navbar = () => {
       .then((res) => {
         (console.log(res),
           Swal.fire({
-            title: `Added Successfully`,
-            text: `Book has been Added`,
+            title: `Logout Successfully`,
+            text: `You has been Logged out`,
             icon: "success",
           }));
       })
@@ -115,8 +121,30 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{link}</ul>
         </div>
-        <div className="navbar-end">
-          <div className="dropdown">
+
+        {/* log out and log in start here */}
+
+        <div className="navbar-end ">
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <button>
+                <img
+                  className="rounded-full w-13 border-2 border-pink-700"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              </button>
+              <ul className="dropdown-content bg-pink-200 text-center menu p-2 w-35  shadow-2xl border-2 border-pink-600 rounded-box  mt-2">
+                <li className="py-2">{user?.displayName}</li>
+                <li className="mx-auto">
+                  <NavLink to="/profile/settings">Settings</NavLink>
+                </li>
+                <li className="mx-auto hover:bg-pink-800 hover:text-white hover:rounded-2xl">
+                  <NavLink onClick={handleLogOut}>Logout</NavLink>
+                </li>
+              </ul>
+            </div>
+          ) : (
             <NavLink
               className={({ isActive }) =>
                 `flex btn btn-ghost btn-outline hover:btn-success gap-1 items-center ${
@@ -128,16 +156,7 @@ const Navbar = () => {
               <IoLogInOutline />
               Login
             </NavLink>
-            <ul className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-2">
-              <li>{user?.email}</li>
-              <li>
-                <NavLink to="/profile/settings">Settings</NavLink>
-              </li>
-              <li>
-                <NavLink onClick={handleLogOut}>Logout</NavLink>
-              </li>
-            </ul>
-          </div>
+          )}
         </div>
       </div>
     </div>

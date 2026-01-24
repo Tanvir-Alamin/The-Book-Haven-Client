@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router";
 
 const CardStyle = ({ book }) => {
-  console.log(book);
-
   return (
     <div className="my-10 flex justify-center">
       <div className="group relative flex flex-col">

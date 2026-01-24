@@ -1,10 +1,15 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { BsEyeFill } from "react-icons/bs";
 import { Eye, EyeOff } from "lucide-react";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
+  const location = useLocation();
+  const address = location.state;
+  const locate = address || "/home";
+
   const navigate = useNavigate();
   const { google, setUser, mailLogIn } = useContext(AuthContext);
   const [error, setError] = useState("");
@@ -13,7 +18,15 @@ const LogIn = () => {
   const submitGoogle = (e) => {
     e.preventDefault();
     google()
-      .then((result) => setUser(result.user), navigate("/home"))
+      .then((result) => {
+        Swal.fire({
+          title: `Login Successfully`,
+          text: `Welcome`,
+          icon: "success",
+        });
+        setUser(result.user);
+        navigate(locate);
+      })
       .catch((error) => console.log(error.code));
   };
   const loginHandle = (e) => {
@@ -33,10 +46,15 @@ const LogIn = () => {
 
     mailLogIn(email, password)
       .then((result) => {
+        Swal.fire({
+          title: `Login Successfully`,
+          text: `Welcome Back`,
+          icon: "success",
+        });
         e.target.reset();
         setUser(result.user);
         setSuccess(true);
-        navigate("/home");
+        navigate(locate);
       })
       .catch((error) => {
         handleFirebaseError(error.code);

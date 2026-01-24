@@ -55,9 +55,9 @@ const AddBook = () => {
       return setErrors("Invalid image URL.");
     }
 
-    if (!emailRegex.test(userEmail)) {
-      return setErrors("Invalid email address.");
-    }
+    // if (!emailRegex.test(userEmail)) {
+    //   return setErrors("Invalid email address.");
+    // }
 
     setErrors("");
     fetch(`http://localhost:3000/all-books`, {
@@ -168,7 +168,7 @@ const AddBook = () => {
             type="email"
             name="userEmail"
             placeholder={""}
-            value={user.email}
+            value={user?.email}
             className="w-full border p-2 mb-3 rounded"
           />
           {errors ? <div className="text-red-700">{errors}</div> : ""}

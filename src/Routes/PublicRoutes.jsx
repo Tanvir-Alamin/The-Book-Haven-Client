@@ -8,6 +8,7 @@ import MyBooks from "../Pages/MyBooks.jsx";
 import LogIn from "../Pages/LogIn.jsx";
 import Register from "../Pages/Register.jsx";
 import BookDetails from "../Pages/BookDetails.jsx";
+import PrivateRoutes from "./PrivateRoutes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,12 +30,20 @@ const router = createBrowserRouter([
       },
       {
         path: "add-book",
-        Component: AddBook,
+        element: (
+          <PrivateRoutes>
+            <AddBook></AddBook>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "my-books",
         loader: () => fetch("http://localhost:3000/all-books"),
-        Component: MyBooks,
+        element: (
+          <PrivateRoutes>
+            <MyBooks></MyBooks>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "login",
@@ -48,7 +57,11 @@ const router = createBrowserRouter([
         path: "book-details/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/book-details/${params.id}`),
-        Component: BookDetails,
+        element: (
+          <PrivateRoutes>
+            <BookDetails></BookDetails>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

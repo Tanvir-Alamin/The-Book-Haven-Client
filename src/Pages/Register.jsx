@@ -2,18 +2,20 @@ import { Eye, EyeOff } from "lucide-react";
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [eye, setEye] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const { userWithEmail, setUser } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const imageRegex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))/i;
 
@@ -64,6 +66,15 @@ const Register = () => {
     setError("");
     userWithEmail(email, password)
       .then((result) => {
+        updateProfile(result.user, { displayName: name, photoURL: photoURL });
+
+        Swal.fire({
+          title: `Account Created Successfully`,
+          text: `Thanks for signing up`,
+          icon: "success",
+        });
+        console.log(result);
+
         setUser(result.user);
         setSuccess(true);
         e.target.reset();
