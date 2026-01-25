@@ -136,9 +136,7 @@ const Navbar = () => {
               </button>
               <ul className="dropdown-content bg-pink-200 text-center menu p-2 w-35  shadow-2xl border-2 border-pink-600 rounded-box  mt-2">
                 <li className="py-2">{user?.displayName}</li>
-                <li className="mx-auto">
-                  <NavLink to="/profile/settings">Settings</NavLink>
-                </li>
+
                 <li className="mx-auto hover:bg-pink-800 hover:text-white hover:rounded-2xl">
                   <NavLink onClick={handleLogOut}>Logout</NavLink>
                 </li>

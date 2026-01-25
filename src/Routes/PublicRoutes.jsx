@@ -9,6 +9,8 @@ import LogIn from "../Pages/LogIn.jsx";
 import Register from "../Pages/Register.jsx";
 import BookDetails from "../Pages/BookDetails.jsx";
 import PrivateRoutes from "./PrivateRoutes.jsx";
+import error from "../assets/error.gif";
+import PrivateForUser from "./PrivateForUser.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,11 +49,23 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        Component: LogIn,
+        element: (
+          <PrivateForUser>
+            <LogIn></LogIn>
+          </PrivateForUser>
+        ),
       },
       {
         path: "register",
-        Component: Register,
+        element: (
+          <PrivateForUser>
+            <Register></Register>
+          </PrivateForUser>
+        ),
+      },
+      {
+        path: "/*",
+        element: <img className=" w-95 mx-auto" src={error} alt="" />,
       },
       {
         path: "book-details/:id",

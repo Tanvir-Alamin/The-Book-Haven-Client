@@ -11,8 +11,8 @@ const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const titleRegex = /^[A-Za-z0-9 --,.']{2,100}$/;
-    const authorRegex = /^[A-Za-z ]{2,50}$/;
+    // const titleRegex = /^[A-Za-z0-9 --,.']{2,100}$/;
+    // const authorRegex = /^[A-Za-z ]{2,50}$/;
     // const genreRegex = /^[A-Za-z --; : "', .]{0,30}$/;
     const ratingRegex = /^(?:[1-4](?:\.[0-9])?|5(?:\.0)?)$/;
     // const summaryRegex = /^[A-Za-z0-9 ,.!?'"-]{10,500}$/;
@@ -36,13 +36,13 @@ const AddBook = () => {
       userEmail,
     };
     setErrors("");
-    if (!titleRegex.test(title)) {
-      return setErrors("Title must be 2–100 characters.");
-    }
+    // if (!titleRegex.test(title)) {
+    //   return setErrors("Title must be 2–100 characters.");
+    // }
 
-    if (!authorRegex.test(author)) {
-      return setErrors("Author name must contain only letters.");
-    }
+    // if (!authorRegex.test(author)) {
+    //   return setErrors("Author name must contain only letters.");
+    // }
 
     if (!ratingRegex.test(rating)) {
       return setErrors("Rating must be between 1.0 and 5.0.");
@@ -101,7 +101,6 @@ const AddBook = () => {
             type="text"
             name="title"
             placeholder="Add Book Title"
-            pattern="^[A-Za-z0-9 --',.]{2,100}$"
             title="Title must be 2–100 characters (letters & numbers only)"
             required
             className="w-full border p-2 mb-3 rounded"
@@ -113,7 +112,6 @@ const AddBook = () => {
             type="text"
             name="author"
             placeholder="Add Author Name"
-            pattern="^[A-Za-z ]{2,50}$"
             title="Author name should contain only letters"
             required
             className="w-full border p-2 mb-3 rounded"
@@ -125,7 +123,6 @@ const AddBook = () => {
             type="text"
             name="genre"
             placeholder="Add Genre"
-            pattern="^[A-Za-z --,.]{0,30}$"
             title="Genre should contain only letters"
             className="w-full border p-2 mb-3 rounded"
           />
@@ -146,7 +143,6 @@ const AddBook = () => {
           <textarea
             name="summary"
             placeholder="Add Summary"
-            pattern="^[A-Za-z0-9 ,.!?'\-]{10,500}$"
             title="Summary must be at least 10 characters"
             className="w-full border p-2 mb-3 rounded"
           />
@@ -157,7 +153,6 @@ const AddBook = () => {
             type="text"
             name="coverImage"
             placeholder="Add Image URL"
-            pattern="^(https?:\/\/.*\.(?:png|jpg|jpeg|webp))$"
             title="Enter a valid image URL (jpg, png, webp)"
             className="w-full border p-2 mb-3 rounded"
           />

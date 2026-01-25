@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthContext";
+import Loader from "../Component/Loader";
 
 const BookDetails = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +14,23 @@ const BookDetails = () => {
   const userMail = user?.email;
 
   const isOwner = mongoDbMail === userMail;
+
+  const [formData, setFormData] = useState({
+    title: data.title,
+    author: data.author,
+    genre: data.genre,
+    rating: data.rating,
+    summary: data.summary,
+    coverImage: data.coverImage,
+    userEmail: data.userEmail,
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -76,8 +94,14 @@ const BookDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        Swal.fire({
+          title: "Update Successful",
+          text: `Book has been Updated`,
+          icon: "success",
+        });
         console.log(data);
         setToggle(false);
+        navigate("/my-books");
       }) // Log the server's response
 
       .catch((error) => console.error("Error:", error));
@@ -97,7 +121,7 @@ const BookDetails = () => {
         navigate("/all-books");
       });
   };
-
+  if (!user) return <Loader></Loader>;
   return (
     <div className="flex items-center  my-20 md:flex-row flex-col justify-center">
       {" "}
@@ -126,7 +150,6 @@ const BookDetails = () => {
           {isOwner ? (
             <div>
               <Link
-                
                 onClick={() => setToggle(!toggle)}
                 className="btn hover:scale-103 transition-transform duration-300 w-33 text-white bg-pink-800 text-xs"
               >
@@ -163,6 +186,8 @@ const BookDetails = () => {
             <input
               type="text"
               name="title"
+              onChange={handleChange}
+              value={formData.title}
               placeholder={data.title}
               className="w-full border p-2 mb-3 rounded"
               required
@@ -170,6 +195,8 @@ const BookDetails = () => {
             <input
               type="text"
               name="author"
+              onChange={handleChange}
+              value={formData.author}
               placeholder={data.author}
               className="w-full border p-2 mb-3 rounded"
               required
@@ -177,12 +204,16 @@ const BookDetails = () => {
             <input
               type="text"
               name="genre"
+              onChange={handleChange}
+              value={formData.genre}
               placeholder={data.genre}
               className="w-full border p-2 mb-3 rounded"
             />
             <input
               type="number"
               name="rating"
+              onChange={handleChange}
+              value={formData.rating}
               placeholder={data.rating}
               step="0.1"
               min="1"
@@ -191,19 +222,23 @@ const BookDetails = () => {
             />
             <textarea
               name="summary"
+              value={formData.summary}
+              onChange={handleChange}
               placeholder={data.summary}
               className="w-full border p-2 mb-3 rounded"
             />
             <input
               type="text"
               name="coverImage"
+              onChange={handleChange}
+              value={formData.coverImage}
               placeholder={data.coverImage}
               className="w-full border p-2 mb-3 rounded"
             />
             <input
               type="email"
               name="userEmail"
-              placeholder={data.userEmail}
+              value={data.userEmail}
               className="w-full border mt-3 p-2 mb-3 rounded"
             />
             {errors ? <div className="text-red-700">{errors}</div> : ""}

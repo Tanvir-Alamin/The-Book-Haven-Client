@@ -10,7 +10,7 @@ const AllBooks = () => {
   if (loading) return <Loader></Loader>;
 
   return (
-    <div className="grid bg-pink-50 grid-cols-3 place-items-center">
+    <div className="grid  grid-cols-3 place-items-center">
       {/* <div>{data.length}</div> */}
       {data.map((book) => (
         <CardStyle key={book._id} book={book}></CardStyle>
