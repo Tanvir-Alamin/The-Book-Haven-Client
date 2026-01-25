@@ -6,7 +6,7 @@ const TopBook = () => {
   const { setLoading } = useContext(AuthContext);
   const [book, setBook] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/all-books")
+    fetch("https://the-book-haven-server-three.vercel.app/all-books")
       .then((res) => res.json())
       .then((data) => {
         (setBook(data), setLoading(false));

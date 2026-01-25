@@ -27,7 +27,8 @@ const router = createBrowserRouter([
       },
       {
         path: "all-books",
-        loader: () => fetch("http://localhost:3000/all-books"),
+        loader: () =>
+          fetch("https://the-book-haven-server-three.vercel.app/all-books"),
         Component: AllBooks,
       },
       {
@@ -40,7 +41,8 @@ const router = createBrowserRouter([
       },
       {
         path: "my-books",
-        loader: () => fetch("http://localhost:3000/all-books"),
+        loader: () =>
+          fetch("https://the-book-haven-server-three.vercel.app/all-books"),
         element: (
           <PrivateRoutes>
             <MyBooks></MyBooks>
@@ -70,7 +72,9 @@ const router = createBrowserRouter([
       {
         path: "book-details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/book-details/${params.id}`),
+          fetch(
+            `https://the-book-haven-server-three.vercel.app/book-details/${params.id}`,
+          ),
         element: (
           <PrivateRoutes>
             <BookDetails></BookDetails>

@@ -60,7 +60,7 @@ const AddBook = () => {
     // }
 
     setErrors("");
-    fetch(`http://localhost:3000/all-books`, {
+    fetch(`https://the-book-haven-server-three.vercel.app/all-books`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

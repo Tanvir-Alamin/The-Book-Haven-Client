@@ -85,13 +85,16 @@ const BookDetails = () => {
     if (!emailRegex.test(userEmail)) {
       return setErrors("Invalid email address.");
     }
-    fetch(`http://localhost:3000/book-details/${data._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
+    fetch(
+      `https://the-book-haven-server-three.vercel.app/book-details/${data._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
       },
-      body: JSON.stringify(updatedData),
-    })
+    )
       .then((res) => res.json())
       .then((data) => {
         Swal.fire({
@@ -107,7 +110,7 @@ const BookDetails = () => {
       .catch((error) => console.error("Error:", error));
   };
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/book-details/${id}`, {
+    fetch(`https://the-book-haven-server-three.vercel.app/book-details/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -122,6 +125,7 @@ const BookDetails = () => {
       });
   };
   if (!user) return <Loader></Loader>;
+  if (!data) return <Loader></Loader>;
   return (
     <div className="flex items-center  my-20 md:flex-row flex-col justify-center">
       {" "}
