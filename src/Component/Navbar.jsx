@@ -11,7 +11,7 @@ import Loader from "./Loader";
 import Swal from "sweetalert2";
 
 const Navbar = () => {
-  const { user, loading, logOut } = useContext(AuthContext);
+  const  { user, loading, logOut } = useContext(AuthContext);
 
   const link = (
     <div className="flex md:flex-row  font-bold flex-col gap-2 md:gap-7">
@@ -112,7 +112,7 @@ const Navbar = () => {
           <Link to="/home" className="btn py-6 btn-ghost text-xl">
             <img
               className="w-12 rounded-xl"
-              src="/src/assets/logo.png"
+              src="https://i.ibb.co.com/4whDyhC1/logo.webp"
               alt=""
             />
             The Book Haven

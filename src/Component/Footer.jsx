@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { FaFacebookSquare, FaRegUser, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoHomeOutline } from "react-icons/io5";
 import { SiWikibooks } from "react-icons/si";
 import { NavLink } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 const Footer = () => {
+  const { user } = useContext(AuthContext);
   return (
     <div className="">
       <footer className="footer bg-[#95a5a6] flex justify-evenly items-center sm:footer-horizontal font-bold text-dark-content p-10">
         <aside>
-          <img className="w-15 rounded-2xl" src="/src/assets/logo.png" alt="" />
+          <img
+            className="w-15 rounded-2xl"
+            src="https://i.ibb.co.com/4whDyhC1/logo.webp"
+            alt=""
+          />
           <p>
             The Book Haven
             <br />
@@ -56,28 +62,34 @@ const Footer = () => {
               <SiWikibooks />
               All Books
             </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                `flex btn btn-ghost hover:btn-success gap-1 items-center ${
-                  isActive ? "bg-emerald-600" : ""
-                }`
-              }
-              to="/add-book"
-            >
-              <AiOutlinePlusCircle />
-              Add Book
-            </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                `flex btn btn-ghost hover:btn-success gap-1 items-center ${
-                  isActive ? "bg-emerald-600" : ""
-                }`
-              }
-              to="/my-books"
-            >
-              <FaRegUser />
-              My Books
-            </NavLink>
+            {user ? (
+              <div className="flex flex-col md:flex-row">
+                <NavLink
+                  className={({ isActive }) =>
+                    `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+                      isActive ? "bg-emerald-600" : ""
+                    }`
+                  }
+                  to="/add-book"
+                >
+                  <AiOutlinePlusCircle />
+                  Add Book
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    `flex btn btn-ghost hover:btn-success gap-1 items-center ${
+                      isActive ? "bg-emerald-600" : ""
+                    }`
+                  }
+                  to="/my-books"
+                >
+                  <FaRegUser />
+                  My Books
+                </NavLink>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </nav>
       </footer>

@@ -173,7 +173,7 @@ const LogIn = () => {
             </form>
             <img
               className="md:w-100 hidden md:block rounded-4xl shadow-black shadow-2xl rounded-r-2xl h-full"
-              src={"/src/assets/logInImage.jpg"}
+              src="https://i.ibb.co.com/spw2LktM/log-In-Image.jpg"
               alt=""
             />
           </div>

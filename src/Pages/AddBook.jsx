@@ -85,7 +85,7 @@ const AddBook = () => {
     <div
       className=" min-h-screen bg-cover bg-center bg-no-repeat py-25 "
       style={{
-        backgroundImage: "url('/src/assets/aot.jpg')",
+        backgroundImage: "url('https://i.ibb.co.com/7tSM700c/aot.jpg')",
       }}
     >
       <div className="flex justify-center items-center">

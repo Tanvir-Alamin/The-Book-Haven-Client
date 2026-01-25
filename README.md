@@ -1,8 +1,8 @@
 # 📚 The Book Haven
 
-🔗 **Live Site:** https://your-live-site-url  
-💻 **Client Repository:** https://github.com/your-username/book-haven-client  
-🖥️ **Server Repository:** https://github.com/your-username/book-haven-server
+🔗 **Live Site:** https://the-bookhaven.netlify.app/
+💻 **Client Repository:** https://github.com/Tanvir-Alamin/The-Book-Haven-Client  
+🖥️ **Server Repository:** https://github.com/Tanvir-Alamin/The-Book-Haven-Server
 
 ---
 

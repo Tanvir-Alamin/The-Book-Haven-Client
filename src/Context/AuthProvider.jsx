@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
     userWithEmail,
     mailLogIn,
     loading,
-    setLoading
+    setLoading,
   };
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };

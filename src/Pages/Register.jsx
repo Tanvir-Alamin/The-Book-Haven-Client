@@ -101,7 +101,7 @@ const Register = () => {
           <div className=" bg-[#FFE4EF] flex justify-between mt-10 mb-25 shadow-2xl rounded-2xl ">
             <img
               className="md:w-92 hidden md:block rounded-4xl shadow-black shadow-2xl rounded-l-2xl h-full"
-              src={"/src/assets/register.jpg"}
+              src="https://i.ibb.co.com/XkWC8VWv/register.jpg"
               alt=""
             />
             <form onSubmit={handleSubmit} className="">

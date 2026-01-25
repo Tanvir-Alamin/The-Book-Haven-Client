@@ -6,7 +6,7 @@ const Hero = () => {
     <div className="flex items-center  gap-10 py-25 bg-pink-50 justify-center">
       <img
         className="rounded-4xl  shadow-black shadow-2xl w-70 md:w-80"
-        src="/src/assets/banner.jpg"
+        src="https://i.ibb.co.com/Z1Rt08tK/banner.jpg"
         alt=""
       />
       <div className="flex flex-col gap-4">
